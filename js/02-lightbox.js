@@ -4,7 +4,6 @@ const gallery = document.querySelector(".gallery");
 const imagesMarkup = incertImages(galleryItems);
 
 gallery.insertAdjacentHTML("beforeend", imagesMarkup);
-gallery.addEventListener("click", onImageClick);
 
 function incertImages(images) {
   return images
@@ -29,15 +28,7 @@ function incertImages(images) {
     .join("");
 }
 
-function onImageClick(e) {
-  const isImage = e.target.classList.contains("gallery__image");
-  const { target } = e;
-
-  if (!isImage) {
-    return;
-  }
-
-  var lightbox = new SimpleLightbox(".gallery a", {});
-
-  console.log();
-}
+var lightbox = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionDelay: 250,
+});
